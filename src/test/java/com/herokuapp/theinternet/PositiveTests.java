@@ -25,7 +25,9 @@ public class PositiveTests {
     // verifications:
       //new url
       //logout button is visible
-      //sucessfull login message
+      //successfully login message
+    //Close Browser
+    driver.quit();
   }
 
 
