@@ -14,7 +14,7 @@ public class PositiveTests {
     System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
     WebDriver driver = new ChromeDriver();
     // Open Test Page
-    String url = "https://the-internet.herokuapp.com/";
+    String url = "https://the-internet.herokuapp.com/login";
     driver.get(url);
     System.out.println("The Page Is Opened");
     // Maximize Browser Window
@@ -23,16 +23,20 @@ public class PositiveTests {
     sleep(3000);
     // Enter Username
     WebElement username = driver.findElement(By.id("username"));
+    username.sendKeys("tomsmith"); //Entering Login
     // Enter password
     WebElement password = driver.findElement(By.name("password"));
+    password.sendKeys("SuperSecretPassword!"); //Entering Password
+    sleep(3000);
     // Click login button
     WebElement logInButton = driver.findElement(By.tagName("button"));
+    logInButton.click();
     // verifications:
       //new url
       //logout button is visible
     WebElement logOutButton = driver.findElement(By.xpath("//a[@class='button secondary radius']"));
       //successfully login message
-    WebElement successMessage = driver.findElement(By.cssSelector("div#flash")));
+    WebElement successMessage = driver.findElement(By.cssSelector("div#flash"));
     //Close Browser
     driver.quit();
   }
