@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class NegativeTests {
-  @Test //(priority = 1)
+  @Test (priority = 1,groups = { "negativeTests", "smokeTest" }) // priority sets the priority, enabled = false - disables the test
   public void incorrectUserNameTest() {
     System.out.println("Starting the test");
     // Create driver
@@ -47,7 +47,7 @@ public class NegativeTests {
     driver.quit();
   }
 
-  @Test //(priority = 2, enabled = false)
+  @Test (priority = 2, enabled = true, groups = { "negativeTests" } )
   public void incorrectPasswordTest() {
     System.out.println("Starting the test");
     // Create driver
@@ -92,6 +92,4 @@ public class NegativeTests {
       e.printStackTrace();
     }
   }
-
-
 }
